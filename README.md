@@ -1,31 +1,38 @@
 # Blocksure ecosystem showcase
 
-Nine linked platform tiles over an animated background, using the supplied trade show video. All styles, icons, scripts, video and fallback image are embedded in `index.html`; no companion assets, package installation or build step are required.
+Nine platform tiles over an animated background, plus a QR code and built-in enquiry panel. All styling, icons, scripts, QR image, video and fallback poster are embedded in `index.html`; no companion assets, package installation or build step are required. The page is approximately 5 MB including the video.
 
 ## Run
 
-From this repository, run:
+From this repository:
 
 ```sh
 python3 -m http.server 3000 --bind 0.0.0.0
 ```
 
-Serve the repository root on any static host, or open the HTML file in a browser. The self-contained file is approximately 5 MB because it includes the video.
+Serve the repository root on any static host, or open `index.html` in a browser. `enquiry.html` also embeds the same Google Form as a standalone page.
 
-## Behaviour
+## Enquiries
 
-- All nine supplied destinations open in a new tab.
-- The background loops silently; the small bottom-right button pauses or resumes it.
-- Reduced-motion preferences show the still poster instead. A poster also provides a fallback when autoplay is unavailable.
-- Playback pauses when the page is hidden and resumes only when permitted by the visitor's preference.
-- The tiles adapt to desktop, tablet and mobile screens and remain available without JavaScript.
+The configured public form is:
 
-Product labels and descriptions are provisional, inferred from the supplied URLs. Review these against official product content before public use. Staging links are preserved exactly as supplied.
+https://docs.google.com/forms/d/e/1FAIpQLSe1-FA0ihWiH_lW-8574BSyRvz1mMTkj5Qxr0LtKTfsCAc1og/viewform
 
-## Enquiry form and QR code
+- The desktop/tablet QR code opens this exact form on a visitor's phone.
+- **Let's connect** opens the Google Form in a panel over the platform tiles.
+- A separate-tab link remains available if embedding is blocked, and works without JavaScript.
+- `#connect` opens the enquiry panel directly when entering the page.
+- On phones, the QR image is hidden in favour of the button and direct form link.
+- The iframe loads only when the enquiry panel is opened.
 
-The recommended live response store is Google Forms linked to Google Sheets. See [one-time setup instructions](setup/README.md) and the included Google Apps Script. Once the public responder URL is available, the showcase can display a scannable QR code directly to it. A “Let’s connect” button now opens the mobile-friendly enquiry panel directly over the tiles. `#connect` opens this panel when entering the page. No live response destination or QR code is configured yet.
+Google Forms handles validation and submissions. The website does not receive or store enquiry details. To ensure responses also appear in a spreadsheet, open the form editor, choose **Responses**, and link a Google Sheet. The provided form's response collection and Sheet destination could not be verified from this environment because Google network requests were blocked. Submit a test on a phone and check the form's Responses tab and linked Sheet before the event.
 
-### Connect the built-in form
+The Google Forms responder URL is set in `GOOGLE_FORM_URL` inside `index.html`. If changing forms, update the iframe/fallback links in both pages and regenerate the embedded QR image too. Do not substitute a private edit URL.
 
-After completing the Google setup, provide the full public responder URL (`https://docs.google.com/forms/d/e/.../viewform`). Set `GOOGLE_FORM_URL` in `index.html` to this URL. The panel then embeds the live Google Form instead of the disabled draft, with a separate-tab fallback link. Google stores submissions in the response spreadsheet. The current draft cannot submit and does not claim to save responses. Do not use the private edit URL.
+The optional script in [setup](setup/README.md) creates a new Google Form and linked Sheet; it is not required for the existing supplied form.
+
+## Background and links
+
+The background video loops silently. The bottom-right control pauses/resumes it, reduced-motion preferences stop animation, and the poster is available when autoplay is unavailable. Playback pauses while the document is hidden. All nine supplied platform URLs open in new tabs.
+
+Product labels and descriptions remain provisional, inferred from the original URLs. Review these against official product content before public use. Staging links are preserved exactly as supplied.
