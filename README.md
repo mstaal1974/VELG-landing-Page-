@@ -21,3 +21,7 @@ Serve the repository root on any static host, or open the HTML file in a browser
 - The tiles adapt to desktop, tablet and mobile screens and remain available without JavaScript.
 
 Product labels and descriptions are provisional, inferred from the supplied URLs. Review these against official product content before public use. Staging links are preserved exactly as supplied.
+
+## Enquiry form and QR code
+
+The recommended live response store is Google Forms linked to Google Sheets. See [one-time setup instructions](setup/README.md) and the included Google Apps Script. Once the public responder URL is available, the showcase can display a scannable QR code directly to it. No live form, database connection or QR code is configured yet.

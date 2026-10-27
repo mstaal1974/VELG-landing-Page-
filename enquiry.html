@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connect with us | Blocksure</title>
+<meta name="theme-color" content="#071622">
+<style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 Arial,Helvetica,sans-serif;color:#edf6fc;background:radial-gradient(ellipse at 10% 0,#164d58,transparent 60%),#071622;min-height:100svh;padding:28px 20px}main{max-width:560px;margin:auto;padding:30px;border:1px solid #9ed3f033;border-radius:20px;background:#102638e8}a{color:#91e3f2}h1{font-size:32px;line-height:1.2;letter-spacing:-1px;margin:18px 0 10px}p{color:#bcd0dd;margin:0 0 24px}.back{font-size:14px;text-decoration:none}.field{display:block;margin:18px 0}.field>span,legend{display:block;font-size:14px;font-weight:bold;margin-bottom:7px}input:not([type=checkbox]),textarea{width:100%;padding:13px 14px;background:#081b2b;border:1px solid #accde04d;border-radius:8px;color:#fff;font:inherit}textarea{min-height:110px;resize:vertical}input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #91e3f2;outline-offset:3px}fieldset{border:1px solid #accde033;border-radius:8px;padding:15px;margin:22px 0}legend{padding:0 5px}.choice{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:14px;color:#d0e0e9}.choice input{width:20px;height:20px;flex-shrink:0;accent-color:#8ce5ef}.consent{margin:20px 0;font-size:13px}button{width:100%;padding:15px;border:0;border-radius:8px;background:#9ce8f0;color:#0a2533;font:700 16px Arial;cursor:pointer}button:disabled{opacity:.55;cursor:default}#status{margin-top:18px;margin-bottom:0;font-size:14px}#success h2{font-size:26px}small{font-size:12px;color:#abc1cf}.required{font-weight:400;color:#abc1cf}.trap{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}[hidden]{display:none!important}@media(max-width:480px){body{padding:16px}main{padding:24px 20px}h1{font-size:29px}}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="index.html">← Back to the ecosystem</a>
+<h1>Let’s connect.</h1>
+<p>Tell us what caught your interest and our team will be in touch.</p>
+<div id="success" hidden tabindex="-1" role="status"><h2>Thanks for connecting.</h2><p>Your enquiry has been received. We look forward to speaking with you.</p><a href="index.html">Explore the ecosystem →</a></div>
+<form id="enquiry">
+<small>Fields marked * are required.</small>
+<label class="field"><span>Name *</span><input name="name" autocomplete="name" required maxlength="120"></label>
+<label class="field"><span>Email *</span><input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254"></label>
+<label class="field"><span>Organisation <span class="required">(optional)</span></span><input name="organisation" autocomplete="organization" maxlength="200"></label>
+<fieldset><legend>I’m interested in <span class="required">(optional)</span></legend>
+<label class="choice"><input type="checkbox" name="interests" value="Blocksure">Blocksure</label>
+<label class="choice"><input type="checkbox" name="interests" value="Blocksure Platform">Blocksure Platform</label>
+<label class="choice"><input type="checkbox" name="interests" value="Microcredentials">Microcredentials</label>
+<label class="choice"><input type="checkbox" name="interests" value="Learning Hub">Learning Hub</label>
+<label class="choice"><input type="checkbox" name="interests" value="SimuLab">SimuLab</label>
+<label class="choice"><input type="checkbox" name="interests" value="Open Skills Management">Open Skills Management</label>
+<label class="choice"><input type="checkbox" name="interests" value="Skills Repository">Skills Repository</label>
+<label class="choice"><input type="checkbox" name="interests" value="Digital Badges">Digital Badges</label>
+<label class="choice"><input type="checkbox" name="interests" value="Skills Atlas">Skills Atlas</label>
+</fieldset>
+<label class="field"><span>How can we help? <span class="required">(optional)</span></span><textarea name="message" maxlength="3000"></textarea></label>
+<div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<label class="choice consent"><input name="consent" type="checkbox" required>I agree to be contacted about this enquiry. *</label>
+<button type="submit" disabled>Send enquiry</button>
+<p id="status" role="status" aria-live="polite">Enquiries are not open yet. Please speak with our team at the stand.</p>
+</form>
+</main>
+<script>
+// Connect an approved form service before publishing. No credentials belong in this file.
+// window.ENQUIRY_ENDPOINT may be supplied by the chosen deployment configuration.
+const form = document.querySelector('#enquiry');
+const button = form.querySelector('button');
+const status = document.querySelector('#status');
+const endpoint = window.ENQUIRY_ENDPOINT || '';
+if (endpoint) { button.disabled = false; status.textContent = ''; }
+form.addEventListener('submit', async event => {
+ event.preventDefault();
+ if (!endpoint || !form.reportValidity()) return;
+ const data = new FormData(form);
+ if (data.get('website')) return;
+ const payload = {
+  name: data.get('name').trim(), email: data.get('email').trim(),
+  organisation: data.get('organisation').trim(),
+  interests: data.getAll('interests'), message: data.get('message').trim(),
+  consent: data.get('consent') === 'on', source: 'ecosystem-showcase'
+ };
+ if (!payload.name) { status.textContent = 'Please enter your name.'; form.elements.name.focus(); return; }
+ button.disabled = true; button.textContent = 'Sending…'; status.textContent = '';
+ const controller = new AbortController();
+ const timeout = setTimeout(() => controller.abort(), 15000);
+ try {
+  const response = await fetch(endpoint, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), signal:controller.signal});
+  if (!response.ok) throw new Error('Unable to save enquiry');
+  const result = await response.json();
+  if (result.saved !== true) throw new Error('Save not confirmed');
+  form.hidden = true;
+  const success = document.querySelector('#success'); success.hidden = false; success.focus();
+ } catch {
+  status.textContent = 'We couldn’t confirm your enquiry was received. Your details are still here. Please try again or speak with our team.';
+ } finally {
+  clearTimeout(timeout); button.disabled = false; button.textContent = 'Send enquiry';
+ }
+});
+</script>
+</body>
+</html>
