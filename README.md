@@ -1,6 +1,6 @@
 # Blocksure ecosystem showcase
 
-Nine platform tiles over an animated background, plus a QR code and built-in enquiry panel. All styling, icons, scripts, QR image, video and fallback poster are embedded in `index.html`; no companion assets, package installation or build step are required. The page is approximately 5 MB including the video.
+Ten platform tiles over an animated background, plus a QR code and built-in enquiry panel. All styling, icons, scripts, QR image, video and fallback poster are embedded in `index.html`; no companion assets, package installation or build step are required. The page is approximately 5 MB including the video.
 
 ## Run
 
@@ -33,6 +33,6 @@ The optional script in [setup](setup/README.md) creates a new Google Form and li
 
 ## Background and links
 
-The background video loops silently. The bottom-right control pauses/resumes it, reduced-motion preferences stop animation, and the poster is available when autoplay is unavailable. Playback pauses while the document is hidden. All nine supplied platform URLs open in new tabs.
+The background video loops silently. The bottom-right control pauses/resumes it, reduced-motion preferences stop animation, and the poster is available when autoplay is unavailable. Playback pauses while the document is hidden. All ten supplied platform URLs open in new tabs.
 
 Product labels and descriptions remain provisional, inferred from the original URLs. Review these against official product content before public use. Staging links are preserved exactly as supplied.
