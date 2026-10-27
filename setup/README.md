@@ -10,10 +10,10 @@ This is the recommended shared response store for the trade show. The form is ho
 4. In the **Execution log**, copy the **PUBLIC FORM URL**. Keep the edit link and response spreadsheet private.
 5. Open the public form in an incognito/private window. If your account restricts responses to your organisation, adjust responder access in the form's publish/settings controls. Check that no Google sign-in is needed for visitors.
 6. Submit a test and confirm a new row appears in the response spreadsheet.
-7. Send the public form URL back to connect the showcase QR code. The QR will link directly to the hosted form; it does not depend on the showcase being hosted by GitHub Pages.
+7. Send the full public form URL back to connect the built-in enquiry panel and QR code. The live Google Form will appear inside the landing page panel and store submissions in its linked Sheet. A QR can link directly to Google Forms without requiring GitHub Pages; linking to the landing page panel instead requires a public website URL ending in `#connect`.
 
 The script creates name, email, organisation, platform interests, message and contact-permission fields. Share the spreadsheet only with staff who need access. Rerunning a successful setup logs the existing links instead of creating duplicates. If setup stops midway, review the existing form before retrying; the script deliberately preserves partially created resources.
 
-`enquiry.html` in the repository root is a draft custom form UI, not the live Google Form. It is not linked from the showcase and does not submit anywhere until a backend is configured. With the recommended Google Forms route, visitors will use Google's hosted form instead.
+`index.html` now includes an enquiry panel accessed using the “Let’s connect” button. Until `GOOGLE_FORM_URL` is configured, it shows a disabled draft. Once configured, the panel embeds the hosted Google Form. `enquiry.html` remains a standalone draft custom form and does not submit anywhere without a backend; it is not used for Google Forms submissions.
 
 The Google-side script must be run and authorised by the Google account owner. It has not been executed against a live Google account from this environment.

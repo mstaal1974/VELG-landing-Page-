@@ -17,6 +17,9 @@ main{min-height:100svh;display:flex;align-items:center;justify-content:center;pa
 @media(max-width:760px){.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px}.platform-card{min-height:222px}.platform-card:last-child{grid-column:1/-1}.platform-card:last-child>p{max-width:none}.background::after{background:#041527aa}.category{font-size:8px}.platform-icon{width:36px;height:36px}.card-bottom{font-size:9px}}
 @media(max-width:480px){main{padding:22px 20px 62px}.platform-grid{grid-template-columns:1fr;gap:15px;max-width:380px}.platform-card{min-height:213px;padding:23px 24px 0;border-radius:17px}.platform-card:last-child{grid-column:auto}.platform-icon{width:40px;height:40px}.category{font-size:9px;letter-spacing:1px}h3{font-size:23px;margin-top:18px}.platform-card>p{font-size:13px;max-width:none}.card-bottom{font-size:9px;padding:15px 0 17px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}.platform-card:hover{transform:none}}
+
+.connect-launcher{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:13px;padding:13px 23px;border:1px solid #a7e6f36b;border-radius:50px;background:#122e42f2;box-shadow:0 5px 24px #0006;color:#e5faff;font:600 13px Arial,Helvetica,sans-serif;cursor:pointer;backdrop-filter:blur(18px)}.connect-launcher:hover{background:#1a455c}.connect-launcher svg{width:19px;height:19px;color:#9ce8f0}.enquiry-dialog{width:min(590px,calc(100% - 28px));max-height:calc(100svh - 32px);padding:0;border:1px solid #a4dbef44;border-radius:22px;background:#102638;color:#edf6fc;box-shadow:0 30px 100px #0008;overscroll-behavior:contain}.enquiry-dialog::backdrop{background:#020c19c9;backdrop-filter:blur(7px)}.dialog-heading{display:flex;gap:12px;align-items:flex-start;padding:28px 28px 0}.dialog-heading h2{font-size:30px;line-height:1.2;letter-spacing:-.9px;margin:0 0 9px}.dialog-heading p{font-size:14px;line-height:1.7;color:#bcd0dd;margin:0}.dialog-close{margin-left:auto;flex-shrink:0;width:36px;height:36px;display:grid;place-items:center;background:#ffffff0a;border:1px solid #b4d7e133;border-radius:50%;color:#d8ecf5;cursor:pointer}.dialog-close svg{width:17px;height:17px}.enquiry-content{padding:0 28px 28px}.enquiry-content form{margin-top:23px}.enquiry-content small{font-size:12px;color:#abc1cf}.enquiry-content .field{display:block;margin:18px 0}.enquiry-content .field>span,.enquiry-content legend{display:block;font-size:14px;font-weight:600;margin-bottom:7px}.enquiry-content input:not([type=checkbox]),.enquiry-content textarea{width:100%;padding:13px 14px;background:#081b2b;border:1px solid #accde04d;border-radius:8px;color:#fff;font:16px/1.5 Arial,Helvetica,sans-serif}.enquiry-content textarea{min-height:100px;resize:vertical}.enquiry-content input:focus-visible,.enquiry-content textarea:focus-visible{outline:3px solid #91e3f2;outline-offset:3px}.enquiry-content fieldset{border:1px solid #accde033;border-radius:8px;padding:12px 15px;margin:22px 0}.enquiry-content legend{padding:0 5px}.enquiry-content .choice{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:14px;line-height:1.5;color:#d0e0e9}.enquiry-content .choice input{width:20px;height:20px;margin:0;flex-shrink:0;accent-color:#8ce5ef}.enquiry-content .consent{margin:20px 0;font-size:13px}.enquiry-content .required{font-weight:400;color:#abc1cf}.enquiry-content .trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.send-enquiry{width:100%;padding:15px;border:0;border-radius:8px;background:#9ce8f0;color:#0a2533;font:700 16px Arial;cursor:pointer}.send-enquiry:disabled{opacity:.5;cursor:default}#enquiry-status{font-size:13px;line-height:1.7;color:#bdcedb;margin:16px 0 0}.google-form{display:block;border:0;width:100%;min-height:70svh;border-radius:10px;background:white;margin-top:24px}.form-fallback{font-size:12px;color:#bcd0dd;line-height:1.7;margin-top:15px}.form-fallback a{color:#9ce8f0;text-decoration:underline}.enquiry-dialog [hidden]{display:none!important}body.dialog-open{overflow:hidden}.connect-launcher[hidden]{display:none!important}
+@media(max-width:480px){.connect-launcher{font-size:12px;padding:12px 19px;bottom:14px}.dialog-heading{padding:24px 20px 0}.dialog-heading h2{font-size:28px}.enquiry-content{padding:0 20px 24px}.motion-control{right:13px;bottom:18px}main{padding-bottom:88px}}
 </style>
 </head>
 <body>
@@ -44,6 +47,36 @@ main{min-height:100svh;display:flex;align-items:center;justify-content:center;pa
         <a class="platform-card" data-category="skills" href="https://skill-atlas.stg.blocksure.com.au/skills-atlas" target="_blank" rel="noopener noreferrer"><div class="card-top"><span class="platform-icon sand"><svg aria-hidden="true"><use href="#atlas"/></svg></span><span class="category">SKILLS & INSIGHTS</span><svg class="card-arrow" aria-hidden="true"><use href="#arrow"/></svg></div><h3>Skills Atlas</h3><p>Navigate the skills landscape and explore connections between capabilities.</p><div class="card-bottom"><span>Skills Atlas · Blocksure</span><span>Explore the atlas <span aria-hidden="true">↗</span></span></div><span class="sr-only">Opens in a new tab</span></a>
 </div></main>
 <button class="motion-control" hidden type="button" aria-label="Play background animation" aria-pressed="true"><svg class="pause-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></svg><svg class="play-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></svg></button>
+
+<button class="connect-launcher" hidden type="button" aria-haspopup="dialog" aria-controls="enquiry-dialog"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4V4Z"/><path d="M8 8h8M8 12h5"/></svg>Let’s connect <span aria-hidden="true">↗</span></button>
+<dialog class="enquiry-dialog" id="enquiry-dialog" aria-labelledby="enquiry-title" aria-describedby="enquiry-description">
+<div class="dialog-heading"><div><h2 id="enquiry-title">Let’s connect.</h2><p id="enquiry-description">Tell us what caught your interest and our team will be in touch.</p></div><button class="dialog-close" type="button" aria-label="Close enquiry form" autofocus><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
+<div class="enquiry-content">
+<form id="embedded-enquiry">
+<small>Fields marked * are required.</small>
+<label class="field"><span>Name *</span><input name="name" autocomplete="name" required maxlength="120"></label>
+<label class="field"><span>Email *</span><input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254"></label>
+<label class="field"><span>Organisation <span class="required">(optional)</span></span><input name="organisation" autocomplete="organization" maxlength="200"></label>
+<fieldset><legend>I’m interested in <span class="required">(optional)</span></legend>
+<label class="choice"><input type="checkbox" name="interests" value="Blocksure">Blocksure</label>
+<label class="choice"><input type="checkbox" name="interests" value="Blocksure Platform">Blocksure Platform</label>
+<label class="choice"><input type="checkbox" name="interests" value="Microcredentials">Microcredentials</label>
+<label class="choice"><input type="checkbox" name="interests" value="Learning Hub">Learning Hub</label>
+<label class="choice"><input type="checkbox" name="interests" value="SimuLab">SimuLab</label>
+<label class="choice"><input type="checkbox" name="interests" value="Open Skills Management">Open Skills Management</label>
+<label class="choice"><input type="checkbox" name="interests" value="Skills Repository">Skills Repository</label>
+<label class="choice"><input type="checkbox" name="interests" value="Digital Badges">Digital Badges</label>
+<label class="choice"><input type="checkbox" name="interests" value="Skills Atlas">Skills Atlas</label>
+</fieldset>
+<label class="field"><span>How can we help? <span class="required">(optional)</span></span><textarea name="message" maxlength="3000"></textarea></label>
+<div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<label class="choice consent"><input name="consent" type="checkbox" required>I agree to be contacted about this enquiry. *</label>
+<button class="send-enquiry" type="submit" disabled>Send enquiry</button>
+<p id="enquiry-status" role="status" aria-live="polite">Enquiries are not open yet. Please speak with our team at the stand.</p>
+</form>
+<iframe id="google-form" class="google-form" title="Blocksure enquiry form" hidden referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<p class="form-fallback" hidden>Prefer a separate page? <a id="open-google-form" target="_blank" rel="noopener noreferrer">Open the form in a new tab.</a></p>
+</div></dialog>
 <script>
 const video = document.querySelector('video');
 const motionButton = document.querySelector('.motion-control');
@@ -75,6 +108,52 @@ document.addEventListener('visibilitychange', syncPlayback);
 video.addEventListener('play', updateControl);
 video.addEventListener('pause', updateControl);
 syncPlayback();
+
+// Set this to the full public Google Forms responder URL after Google setup.
+// The form remains unavailable until a real destination is configured.
+const GOOGLE_FORM_URL = window.GOOGLE_FORM_URL || '';
+const enquiryDialog = document.querySelector('#enquiry-dialog');
+const connectLauncher = document.querySelector('.connect-launcher');
+const enquiryFrame = document.querySelector('#google-form');
+let googleFormUrl = null;
+try {
+  const candidate = new URL(GOOGLE_FORM_URL);
+  if (candidate.protocol === 'https:' && candidate.hostname === 'docs.google.com' && /^\/forms\/(?:d|u\/\d+\/d)\/(?:e\/)?[^/]+\/viewform\/?$/.test(candidate.pathname)) {
+    googleFormUrl = candidate;
+  }
+} catch { /* A live destination has not been configured yet. */ }
+if (googleFormUrl) {
+  const embeddedUrl = new URL(googleFormUrl);
+  embeddedUrl.searchParams.set('embedded', 'true');
+  enquiryFrame.dataset.src = embeddedUrl.href;
+  enquiryFrame.hidden = false;
+  document.querySelector('#embedded-enquiry').hidden = true;
+  document.querySelector('.form-fallback').hidden = false;
+  document.querySelector('#open-google-form').href = googleFormUrl.href;
+}
+function openEnquiry() {
+  if (enquiryDialog.open) return;
+  if (enquiryFrame.dataset.src && !enquiryFrame.hasAttribute('src')) enquiryFrame.src = enquiryFrame.dataset.src;
+  enquiryDialog.showModal();
+  document.body.classList.add('dialog-open');
+}
+function closeEnquiry() { enquiryDialog.close(); }
+connectLauncher.hidden = false;
+connectLauncher.addEventListener('click', openEnquiry);
+document.querySelector('.dialog-close').addEventListener('click', closeEnquiry);
+enquiryDialog.addEventListener('click', event => {
+  const rect = enquiryDialog.getBoundingClientRect();
+  if (event.target === enquiryDialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) closeEnquiry();
+});
+enquiryDialog.addEventListener('close', () => {
+  document.body.classList.remove('dialog-open');
+  if (location.hash === '#connect') history.replaceState(null, '', location.pathname + location.search);
+  connectLauncher.focus({preventScroll:true});
+});
+function openEnquiryFromHash() { if (location.hash === '#connect') openEnquiry(); }
+window.addEventListener('hashchange', openEnquiryFromHash);
+openEnquiryFromHash();
+document.querySelector('#embedded-enquiry').addEventListener('submit', event => event.preventDefault());
 </script>
 </body>
 </html>

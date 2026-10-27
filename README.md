@@ -24,4 +24,8 @@ Product labels and descriptions are provisional, inferred from the supplied URLs
 
 ## Enquiry form and QR code
 
-The recommended live response store is Google Forms linked to Google Sheets. See [one-time setup instructions](setup/README.md) and the included Google Apps Script. Once the public responder URL is available, the showcase can display a scannable QR code directly to it. No live form, database connection or QR code is configured yet.
+The recommended live response store is Google Forms linked to Google Sheets. See [one-time setup instructions](setup/README.md) and the included Google Apps Script. Once the public responder URL is available, the showcase can display a scannable QR code directly to it. A “Let’s connect” button now opens the mobile-friendly enquiry panel directly over the tiles. `#connect` opens this panel when entering the page. No live response destination or QR code is configured yet.
+
+### Connect the built-in form
+
+After completing the Google setup, provide the full public responder URL (`https://docs.google.com/forms/d/e/.../viewform`). Set `GOOGLE_FORM_URL` in `index.html` to this URL. The panel then embeds the live Google Form instead of the disabled draft, with a separate-tab fallback link. Google stores submissions in the response spreadsheet. The current draft cannot submit and does not claim to save responses. Do not use the private edit URL.
